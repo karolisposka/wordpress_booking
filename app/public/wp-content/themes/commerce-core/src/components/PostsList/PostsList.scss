@@ -1,0 +1,23 @@
+@use '/src/styles/layout.scss';
+
+.posts-list{
+    background-color:#F1F1F1;
+    width: 100%;
+    min-height:100vh;
+    height:100%;
+    @include layout.min-width(small){
+        padding-top:55px;
+    }
+    &-wrap{
+        max-width:1200px;
+        margin: 0 auto;
+        padding:8px 16px;
+    };
+    &-title{
+        font-size:24px;
+        text-align:center;
+        color:#13213A;
+        padding:16px;
+
+    }
+}

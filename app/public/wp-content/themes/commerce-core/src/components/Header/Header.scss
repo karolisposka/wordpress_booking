@@ -1,0 +1,144 @@
+@use '../../styles/layout.scss';
+@use '../../styles/fonts.scss';
+@use '../../styles/colors.scss';
+
+.header-container{
+    background-color: colors.$bg--white;
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:5;
+    width:100%;
+    &-wrap{
+        padding: 8px 16px;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        @include layout.min-width(small){
+            max-width:1200px;
+            margin: 0 auto;
+        }
+        &-logo{
+            text-decoration:none;
+            img{
+                height: auto;
+                width:115px;
+                @include layout.min-width(medium){
+                    width:200px;
+                }
+            }
+        };
+        &-navigation{
+            display:none;
+            @include layout.min-width(small){
+                display:flex;
+            }
+            &-item{
+                display:block;
+                text-align: center;
+                text-decoration:none;
+                font-size:16px;
+                padding: 16px 0;
+                &:not(:last-of-type){
+                    margin: 0 20px;
+                };
+                &:last-of-type{
+                    margin-left: 20px;
+                }
+                & a{
+                    font-family: fonts.$fonts-secondary;
+                    color: colors.$font-primary;
+                }
+            }
+
+        }
+        &-mobile{
+            @include layout.min-width(small){
+                display:none;
+            }
+            &-menu{
+                &-button{
+                    border: none;
+                    background-color: transparent;
+                    margin: 0;
+                    padding:0.25rem;
+                    display:flex;
+                    justify-content:center;
+                    align-items:center;
+                    &[expanded = 'true'] &-line{
+                        y: 45;
+                        transition: y 250ms ease-in, opacity 0ms ease-in 250ms, transform 250ms ease-in 250ms;
+                        transform-origin:center;
+                    };
+                    &[expanded = 'true'] &-line:nth-of-type(2){
+                        opacity: 0;
+                    };
+                    &[expanded = 'true'] &-line:nth-of-type(1){
+                        transform:rotate(45deg);
+                    };
+                    &[expanded = 'true'] &-line:nth-of-type(3){
+                        transform:rotate(-45deg);
+                    };
+                    &-line{
+                        transition: y 250ms ease-in 250ms, opacity 0ms ease-in 250ms, transform 250ms ease-in;
+                        transform-origin:Center;
+                        height:10%;
+                        rx: 5;
+                        fill: colors.$svg-primary;
+                        &:first-of-type{
+                            y: 15;
+                        };
+                        &:nth-of-type(2){
+                            y: 50;
+                        }
+                        &:nth-of-type(3){
+                            y: 85;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
+.header-collapse{
+    position:fixed;
+    overflow:hidden;
+    bottom:-9px;
+    left:0;
+    z-index:5;
+    height:0vh;
+    width:100%;
+    background:colors.$bg--white;
+    transition:0.3s ease-in;
+    @include layout.min-width(small){
+        display:none;
+    }
+    &[expanded='true']{
+        height: calc(100vh - 40px);
+    }
+    &-wrap{
+        padding: 8px 16px;
+        &-list{
+            @include layout.min-width(small){
+                display:flex;
+            }
+            &-item{
+                display:block;
+                text-align: center;
+                text-decoration:none;
+                font-size:16px;
+                padding: 16px 0;
+                border-bottom: 1px solid #F2F2F2;
+                & a{
+                    font-family: fonts.$fonts-secondary;
+                    color: colors.$font-primary;
+                    text-decoration:none;
+                }
+            }
+        }
+        
+    }
+}

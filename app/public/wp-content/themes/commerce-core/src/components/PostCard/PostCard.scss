@@ -1,0 +1,183 @@
+@use '../../styles/layout.scss';
+@use '../../styles/colors.scss';
+
+
+.list-card{
+    border:3px solid colors.$yellow-primary;
+    border-radius:4px;
+    margin: 5px 0;
+    box-shadow: 0px 0px 15px 4px rgba(0, 0, 0, 0.1);
+    &-seperator{
+        padding-bottom:1px;
+        box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+    }
+    &-wrap{
+        display:block;
+        @include layout.min-width(medium){
+            display:flex;
+        }
+        &-content{
+            flex:1;
+            &-price{
+                flex:2;
+            }
+            &-checkout{
+                background:colors.$yellow-primary;
+                border-radius:4px;
+                padding: 16px 8px;
+                flex:4;
+                text-decoration:none;
+                text-align: center;
+                font-family: 'Poppins';
+                color:colors.$font-primary;
+                text-transform: uppercase;
+                font-weight:600;
+                letter-spacing:2px;
+                position:relative;
+                &:before{
+                    content:'';
+                    position:absolute;
+                    top:0;
+                    left:-8px;
+                    background:rgba(0, 0, 0, 0.1);
+                    height:100%;
+                    width:1px;
+                }
+                @include layout.min-width(medium){
+                    flex:6;
+                }
+            }
+            &-wrap{
+                padding:16px;
+                @include layout.min-width(small){
+                    padding:24px;
+                }
+                &-rating{
+                    svg{
+                        fill:colors.$yellow-primary; 
+                    }
+                }
+                
+                &-title{
+                    margin:4px 0 !important;
+                    padding:0;
+                    font-size:16px;
+                    font-weight:700;
+                    color:colors.$font-primary;  
+                    @include layout.min-width(small){
+                        font-size:24px;
+                    }
+                }
+                &-subtitle{
+                    color:colors.$font-gray;
+                    font-size:10px;
+                    margin: 8px 0;
+                    @include layout.min-width(small){
+                        font-size:14px;
+                    }
+                }
+                &-item {
+                    display:flex;
+                    align-items:Center;
+                    padding:8px 0;
+                    &-policies{
+                        @include layout.min-width(small){
+                            margin-left:8px;
+                            flex:3;
+                        }
+                        flex:1;
+                            p{
+                                color:colors.$success;
+                                margin: 0 !important;
+                                font-size:12px;
+                                line-height:18px;
+                                display:flex;
+                                align-items:center;
+                                svg{
+                                    margin-right:5px;
+                                }
+                            }
+
+                    };
+                    &-reviews{
+                        flex:1;
+                        display:flex;
+                        &-score{
+                            display:flex;
+                            justify-content:Center;
+                            align-items:Center;
+                            border-radius:8px;
+                            background: colors.$font-primary;
+                            font-weight:700;
+                            padding:10px;
+                            text-align: center;
+                            color: colors.$bg--white;
+                            &-items{
+                                margin-left:4px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        &-image{
+            flex:1;
+            position:relative;
+            padding-bottom: 40%;
+            @include layout.min-width(small){
+                padding-bottom: 25%;
+            }
+            &-comment{
+                position:absolute;
+                top:5px;
+                left:5px;
+                background: colors.$success;
+                font-size:12px;
+                font-weight:500;
+                box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+                padding:4px 8px;
+                border-radius:4px;
+                z-index:3;
+                color:colors.$bg--white; 
+                display:flex;
+                align-items:center;
+                svg{
+                    margin-right:3px;
+                }
+            }
+            img{
+                position:absolute;
+                left:0;
+                top:0;
+                object-fit:cover;
+                width:100%;
+                height:100%;
+            }
+
+        }
+       
+    }
+}
+
+.card-icon{
+    border-radius:4px;
+    border: 3px solid colors.$yellow-primary;
+    margin: 0 4px;
+    &-wrap{
+        padding:8px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        @include layout.min-width(small){
+            padding:10px;
+        }
+        &svg{
+            fill:colors.$font-primary;
+            height:1.5rem;
+            width:1.5rem;
+        }
+
+    }
+
+}
