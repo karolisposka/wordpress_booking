@@ -4,7 +4,9 @@ To run application in local environment download [Local-wp](https://localwp.com/
 
 ![image](/assets/asset.png)
 
-Once zip succesfully imported click wp-admin in main dashboard. It should redirect to wp-admin login interface. Pass the credentials written bellow and your are good to use my piece of art :) 
+![image](/assets/dashboard.png)
+
+Once zip succesfully imported click wp-admin button in top of the dashboard. It should redirect you to wp-admin login interface. Use credentials provided bellow to access the wordpress server.
 
 ###### username: karolisposka
 ##### password: labaskrabas
